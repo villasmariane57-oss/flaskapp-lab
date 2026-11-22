@@ -44,6 +44,10 @@ def update(i):
     db.session.commit()
     return jsonify(s.to_dict())
 
+@app.route("/")
+def hello():
+    return ("hello flask")
+
 @app.route("/students/<int:i>", methods=["DELETE"])
 def delete(i):
     s = db.get_or_404(Student, i)
